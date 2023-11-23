@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol GameListPresenterProtocol {
     var gameListView: GameListViewProtocol? { get set }
@@ -14,6 +15,8 @@ protocol GameListPresenterProtocol {
 
     func willFetchGameList()
 
+    func willFetchGameDetailRx(id gameID: Int)
+    
     func willFetchGameDetail(id gameID: Int)
 }
 
@@ -24,6 +27,8 @@ class GameListPresenter: GameListPresenterProtocol {
     var gameListInteractor: GameListInteractorProtocol?
 
     var gameListRouter: GameListRouterProtocol?
+    
+    private let disposeBag = DisposeBag()
 
     init(gameListView: GameListViewProtocol, gameListInteractor: GameListInteractorProtocol) {
         self.gameListView = gameListView
@@ -48,6 +53,45 @@ class GameListPresenter: GameListPresenterProtocol {
         }
 
         gameListView?.showGameList(gameListData)
+    }
+    
+    func willFetchGameDetailRx(id gameID: Int) {
+        gameListView?.showLoadingScreen()
+        
+        if FavoriteGameDefaults.check() {
+
+            let favoriteList = FavoriteGameDefaults.get()
+            var foundMatch = false
+
+            if let index = favoriteList.firstIndex(where: { $0.id == gameID }) {
+                let data = favoriteList[index]
+
+                self.gameListView?.dismissLoadingScreen()
+                self.gameListRouter?.goToGameDetailPage(gameData: data)
+
+                foundMatch = true
+            }
+
+            if !foundMatch {
+            gameListInteractor?.fetchGameDetailRx(id: String(gameID))
+                .observe(on: MainScheduler.instance)
+                .subscribe { result in
+                    self.gameListView?.dismissLoadingScreen()
+                    self.gameListRouter?.goToGameDetailPage(gameData: result)
+                } onError: { error in
+                    print(error.localizedDescription)
+                }.disposed(by: disposeBag)
+            }
+        } else {
+            gameListInteractor?.fetchGameDetailRx(id: String(gameID))
+                .observe(on: MainScheduler.instance)
+                .subscribe { result in
+                    self.gameListView?.dismissLoadingScreen()
+                    self.gameListRouter?.goToGameDetailPage(gameData: result)
+                } onError: { error in
+                    print(error.localizedDescription)
+                }.disposed(by: disposeBag)
+        }
     }
 
     func willFetchGameDetail(id gameID: Int) {

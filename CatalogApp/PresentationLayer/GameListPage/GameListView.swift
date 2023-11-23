@@ -125,6 +125,6 @@ extension GameListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.hidesBottomBarWhenPushed = true
         let reusableData = gameListData[indexPath.row]
-        gameListPresenter?.willFetchGameDetail(id: reusableData.id)
+        gameListPresenter?.willFetchGameDetailRx(id: reusableData.id)
     }
 }

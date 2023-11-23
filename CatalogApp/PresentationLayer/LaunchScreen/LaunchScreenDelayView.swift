@@ -19,7 +19,7 @@ class LaunchScreenDelayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        launchScreenDelayPresenter?.willFetchGameList()
+        launchScreenDelayPresenter?.willFetchGameListRx()
     }
 }
 

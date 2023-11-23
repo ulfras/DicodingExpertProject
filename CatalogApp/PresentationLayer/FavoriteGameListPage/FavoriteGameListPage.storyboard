@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="91" width="390" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S01-Ma-sY8">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoFavorite" translatesAutoresizingMaskIntoConstraints="NO" id="S01-Ma-sY8">
                                 <rect key="frame" x="75" y="302" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="487-7l-rQr"/>
@@ -80,6 +80,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NoFavorite" width="150" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

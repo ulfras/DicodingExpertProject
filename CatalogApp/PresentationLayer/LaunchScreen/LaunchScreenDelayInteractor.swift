@@ -6,20 +6,33 @@
 //
 
 import Alamofire
+import RxSwift
 
 protocol LaunchScreenDelayInteractorProtocol {
     var launchScreenDelayPresenter: LaunchScreenDelayPresenterProtocol? { get set }
+    
+    var launchScreenDelayDataSource: RAWGAPIDataSource? { get set }
 
+    func fetchGameListRx() -> Observable<RAWGGameListModel>
+    
     func fetchGameList(completionHandler: @escaping (Result<RAWGGameListModel, AFError>) -> Void)
 }
 
 class LaunchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol {
     var launchScreenDelayPresenter: LaunchScreenDelayPresenterProtocol?
-
-    let apiKey = RAWGAPI.apiKey
+    
+    var launchScreenDelayDataSource: RAWGAPIDataSource?
+    
+    init(launchScreenDelayDataSource: RAWGAPIDataSource) {
+        self.launchScreenDelayDataSource = launchScreenDelayDataSource
+    }
+    
+    func fetchGameListRx() -> Observable<RAWGGameListModel> {
+        return launchScreenDelayDataSource!.getGameListRx()
+    }
 
     func fetchGameList(completionHandler: @escaping (Result<RAWGGameListModel, AFError>) -> Void) {
-        RAWGAPI.getGameList(key: apiKey) { result in
+        launchScreenDelayDataSource?.getGameList() { result in
             completionHandler(result)
         }
     }

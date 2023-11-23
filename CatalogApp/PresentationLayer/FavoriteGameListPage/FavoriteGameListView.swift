@@ -51,8 +51,22 @@ class FavoriteGameListViewController: UIViewController {
 
 extension FavoriteGameListViewController: FavoriteGameListViewProtocol {
     func showFavoriteList(_ favoriteList: [RAWGGameDetailModel]) {
+        
         self.favoriteGameList = favoriteList
-        favoriteGameListTableViewOutlet.reloadData()
+        
+        if self.favoriteGameList.isEmpty {
+            favoriteGameListTableViewOutlet.isHidden = true
+            
+            noFavoriteGameImageOutlet.isHidden = false
+            noFavoriteGameLabelOutlet.isHidden = false
+        } else {
+            favoriteGameListTableViewOutlet.isHidden = false
+            
+            noFavoriteGameImageOutlet.isHidden = true
+            noFavoriteGameLabelOutlet.isHidden = true
+            
+            favoriteGameListTableViewOutlet.reloadData()
+        }
     }
 }
 

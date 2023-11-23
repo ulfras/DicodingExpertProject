@@ -5,22 +5,42 @@
 //  Created by Maulana Frasha on 14/11/23.
 //
 
+import RxSwift
+
 protocol LaunchScreenDelayPresenterProtocol {
     var launchScreenDelayView: LaunchScreenDelayViewProtocol? { get set }
     var launchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol? { get set }
     var launchScreenDelayRouter: LaunchScreenDelayRouterProtocol? { get set }
 
+    func willFetchGameListRx()
+    
     func willFetchGameList()
 }
 
 class LaunchScreenDelayPresenter: LaunchScreenDelayPresenterProtocol {
+    
     var launchScreenDelayView: LaunchScreenDelayViewProtocol?
+    
     var launchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol?
+    
     var launchScreenDelayRouter: LaunchScreenDelayRouterProtocol?
+    
+    private let disposeBag = DisposeBag()
 
     init(launchScreenDelayView: LaunchScreenDelayViewProtocol, launchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol) {
         self.launchScreenDelayView = launchScreenDelayView
         self.launchScreenDelayInteractor = launchScreenDelayInteractor
+    }
+    
+    func willFetchGameListRx() {
+        launchScreenDelayInteractor?.fetchGameListRx()
+            .observe(on: MainScheduler.instance)
+            .subscribe { result in
+                GameListDefaults.save(result)
+                self.launchScreenDelayRouter?.goToGameList()
+            } onError: { error in
+                self.launchScreenDelayView?.failedToFetchGameList(error.localizedDescription)
+            }.disposed(by: disposeBag)
     }
 
     func willFetchGameList() {
