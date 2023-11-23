@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VON-jq-XwE">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Launch Screen Delay View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LaunchScreenDelay" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LaunchScreenDelayViewController" customModule="CatalogApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DicodingLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iv8-aD-cNO">
+                                <rect key="frame" x="75" y="327" width="240" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="qp2-DH-okO"/>
+                                    <constraint firstAttribute="width" constant="240" id="uDA-G6-XnP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submission Catalog App" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zz3-gH-Rve">
+                                <rect key="frame" x="101.66666666666669" y="427" width="187" height="21"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maulana Muhammad Yusuf Frasha" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvS-3i-TSO">
+                                <rect key="frame" x="64" y="478.33333333333331" width="262" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4y-0T-OZ6">
+                                <rect key="frame" x="185.66666666666666" y="453" width="18.666666666666657" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="cWC-kp-k7Z">
+                                <rect key="frame" x="176.66666666666666" y="548.66666666666663" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iv8-aD-cNO" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-50" id="EV8-te-qoS"/>
+                            <constraint firstItem="O4y-0T-OZ6" firstAttribute="top" secondItem="zz3-gH-Rve" secondAttribute="bottom" constant="5" id="F4y-i7-3W2"/>
+                            <constraint firstItem="cWC-kp-k7Z" firstAttribute="top" secondItem="lvS-3i-TSO" secondAttribute="bottom" constant="50" id="HHL-eP-D6k"/>
+                            <constraint firstItem="lvS-3i-TSO" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="LPO-cZ-Bdc"/>
+                            <constraint firstItem="cWC-kp-k7Z" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Pt7-ls-D2d"/>
+                            <constraint firstItem="zz3-gH-Rve" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Qyx-pR-jWN"/>
+                            <constraint firstItem="iv8-aD-cNO" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="VHg-m4-URJ"/>
+                            <constraint firstItem="zz3-gH-Rve" firstAttribute="top" secondItem="iv8-aD-cNO" secondAttribute="bottom" constant="10" id="XYH-yp-0Gm"/>
+                            <constraint firstItem="lvS-3i-TSO" firstAttribute="top" secondItem="O4y-0T-OZ6" secondAttribute="bottom" constant="5" id="dbE-Pc-6Ok"/>
+                            <constraint firstItem="O4y-0T-OZ6" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="fn4-FO-Teh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VF7-p0-Kbe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046.1538461538462" y="3.5545023696682461"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ok9-DZ-jq5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VON-jq-XwE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fhf-v5-0Rl">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Hdr-vy-5NS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kbg-5L-kuJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116.92307692307692" y="3.5545023696682461"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DicodingLogo" width="198.33332824707031" height="50"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
