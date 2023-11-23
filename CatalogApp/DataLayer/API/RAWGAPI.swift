@@ -14,7 +14,6 @@ class RAWGAPI {
 
             guard Bundle.main.path(forResource: "RAWG-Sample", ofType: "plist") != nil else {
                 fatalError("Couldn't find any file RAWG-Sample")
-
             }
 
             fatalError("Change the RAWG-Sample.plist to RAWG.plist and set the value with [APIKey:\"TheKey\"], to get \"TheKey\" go to https://rawg.io/apidocs")

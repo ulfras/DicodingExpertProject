@@ -30,6 +30,8 @@ class GameListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         gameListPresenter?.willFetchGameList()
+        
+        navigationController?.navigationBar.tintColor = .dicoding
 
         if let selectedIndexPath = gameListTableViewOutlet.indexPathForSelectedRow {
             gameListTableViewOutlet.deselectRow(at: selectedIndexPath, animated: true)

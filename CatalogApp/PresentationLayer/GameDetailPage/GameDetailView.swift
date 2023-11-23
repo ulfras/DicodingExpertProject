@@ -53,7 +53,7 @@ class GameDetailViewController: UIViewController {
         let favoriteImage = UIImage(systemName: favoriteImageName)
 
         let favoriteButton = UIBarButtonItem(image: favoriteImage, landscapeImagePhone: favoriteImage, style: .done, target: self, action: #selector(favoriteButtonTapped))
-        favoriteButton.tintColor = .systemBlue
+        favoriteButton.tintColor = .dicoding
 
         navigationItem.rightBarButtonItem = favoriteButton
     }

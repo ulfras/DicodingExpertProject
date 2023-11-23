@@ -21,19 +21,39 @@
                                 <rect key="frame" x="0.0" y="91" width="390" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S01-Ma-sY8">
+                                <rect key="frame" x="75" y="302" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="487-7l-rQr"/>
+                                    <constraint firstAttribute="width" secondItem="S01-Ma-sY8" secondAttribute="height" multiplier="1:1" id="OlX-r6-j45"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There's no favorite game." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fva-lq-3Ek">
+                                <rect key="frame" x="20" y="562" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Fva-lq-3Ek" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="0cA-Dv-FFy"/>
+                            <constraint firstItem="Fva-lq-3Ek" firstAttribute="top" secondItem="S01-Ma-sY8" secondAttribute="bottom" constant="20" id="0gJ-ho-7Hk"/>
                             <constraint firstItem="M4R-GS-76B" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8ng-uL-cFC"/>
+                            <constraint firstItem="S01-Ma-sY8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="H09-N7-sl4"/>
                             <constraint firstItem="M4R-GS-76B" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="MHf-J6-F5m"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="M4R-GS-76B" secondAttribute="trailing" id="RqG-OR-Njl"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Fva-lq-3Ek" secondAttribute="trailing" constant="20" id="feZ-cV-h0d"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="M4R-GS-76B" secondAttribute="bottom" id="kCh-tK-ZVd"/>
+                            <constraint firstItem="S01-Ma-sY8" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="n1P-AV-3E8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aln-vH-BJH"/>
                     <connections>
                         <outlet property="favoriteGameListTableViewOutlet" destination="M4R-GS-76B" id="oRT-97-L3h"/>
+                        <outlet property="noFavoriteGameImageOutlet" destination="S01-Ma-sY8" id="3sH-Pj-1SL"/>
+                        <outlet property="noFavoriteGameLabelOutlet" destination="Fva-lq-3Ek" id="aIG-vH-Ghd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

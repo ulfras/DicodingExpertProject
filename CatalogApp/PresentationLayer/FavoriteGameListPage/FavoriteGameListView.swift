@@ -20,7 +20,9 @@ class FavoriteGameListViewController: UIViewController {
     var favoriteGameList: [RAWGGameDetailModel] = []
 
     @IBOutlet weak var favoriteGameListTableViewOutlet: UITableView!
-
+    @IBOutlet weak var noFavoriteGameImageOutlet: UIImageView!
+    @IBOutlet weak var noFavoriteGameLabelOutlet: UILabel!
+    
     override func viewWillAppear(_ animated: Bool) {
 
         favoriteGameListPresenter?.willFetchFavoriteGameList()

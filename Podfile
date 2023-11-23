@@ -6,6 +6,8 @@ target 'CatalogApp' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   # Pods for CatalogApp
 

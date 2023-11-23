@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310607FD2B0EE1AD008745D4 /* RAWG.plist in Resources */ = {isa = PBXBuildFile; fileRef = 310607FC2B0EE1AD008745D4 /* RAWG.plist */; };
 		310FA77B2B03166B00EB681C /* LaunchScreenDelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FA77A2B03166B00EB681C /* LaunchScreenDelayView.swift */; };
 		310FA77D2B03168A00EB681C /* LaunchScreenDelay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 310FA77C2B03168A00EB681C /* LaunchScreenDelay.storyboard */; };
 		310FA77F2B0317C900EB681C /* LaunchScreenDelayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FA77E2B0317C900EB681C /* LaunchScreenDelayInteractor.swift */; };
@@ -23,7 +24,6 @@
 		310FA7972B0364D700EB681C /* FavoriteGameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FA7962B0364D700EB681C /* FavoriteGameListRouter.swift */; };
 		310FA7992B0364DB00EB681C /* FavoriteGameListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FA7982B0364DB00EB681C /* FavoriteGameListBuilder.swift */; };
 		310FA79B2B036F9700EB681C /* DeveloperNameDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FA79A2B036F9700EB681C /* DeveloperNameDefaults.swift */; };
-		312E2C492B00B4E20000C7D8 /* RAWG.plist in Resources */ = {isa = PBXBuildFile; fileRef = 312E2C482B00B4E20000C7D8 /* RAWG.plist */; };
 		319E0BFD2AFB859C001E1B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319E0BFC2AFB859C001E1B59 /* AppDelegate.swift */; };
 		319E0BFF2AFB859C001E1B59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319E0BFE2AFB859C001E1B59 /* SceneDelegate.swift */; };
 		319E0C062AFB859E001E1B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 319E0C052AFB859E001E1B59 /* Assets.xcassets */; };
@@ -63,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		310607FC2B0EE1AD008745D4 /* RAWG.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RAWG.plist; sourceTree = "<group>"; };
 		310FA77A2B03166B00EB681C /* LaunchScreenDelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenDelayView.swift; sourceTree = "<group>"; };
 		310FA77C2B03168A00EB681C /* LaunchScreenDelay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreenDelay.storyboard; sourceTree = "<group>"; };
 		310FA77E2B0317C900EB681C /* LaunchScreenDelayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenDelayInteractor.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		310FA7962B0364D700EB681C /* FavoriteGameListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGameListRouter.swift; sourceTree = "<group>"; };
 		310FA7982B0364DB00EB681C /* FavoriteGameListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGameListBuilder.swift; sourceTree = "<group>"; };
 		310FA79A2B036F9700EB681C /* DeveloperNameDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperNameDefaults.swift; sourceTree = "<group>"; };
-		312E2C482B00B4E20000C7D8 /* RAWG.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RAWG.plist; sourceTree = "<group>"; };
 		319E0BF92AFB859C001E1B59 /* CatalogApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatalogApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		319E0BFC2AFB859C001E1B59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		319E0BFE2AFB859C001E1B59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,9 +191,9 @@
 			isa = PBXGroup;
 			children = (
 				319E0C0A2AFB859E001E1B59 /* Info.plist */,
-				312E2C482B00B4E20000C7D8 /* RAWG.plist */,
 				319E0C052AFB859E001E1B59 /* Assets.xcassets */,
 				31F232442AFBB51F007CE0A1 /* .swiftlint.yml */,
+				310607FC2B0EE1AD008745D4 /* RAWG.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -426,9 +426,9 @@
 				31F232572AFBBEA6007CE0A1 /* GameDetailPage.storyboard in Resources */,
 				319E0C092AFB859E001E1B59 /* LaunchScreen.storyboard in Resources */,
 				31FBA8472AFBD68800949621 /* GameListCell.xib in Resources */,
-				312E2C492B00B4E20000C7D8 /* RAWG.plist in Resources */,
 				31F232632AFBC187007CE0A1 /* GameListPage.storyboard in Resources */,
 				319E0C062AFB859E001E1B59 /* Assets.xcassets in Resources */,
+				310607FD2B0EE1AD008745D4 /* RAWG.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
