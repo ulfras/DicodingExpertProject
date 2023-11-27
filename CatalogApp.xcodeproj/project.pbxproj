@@ -442,7 +442,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\n# Set the path to your .swiftlint.yml configuration file\nCONFIG_FILE=\"${PROJECT_DIR}/CatalogApp/Resources/.swiftlint.yml\"\n\necho \"Working Directory = ${PROJECT_DIR}\"\necho \"SwiftLint Config File Directory = $CONFIG_FILE\"\n\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  cd \"${PROJECT_DIR}\" # Change the working directory to the project root\n  swiftlint --config \"$CONFIG_FILE\" --fix && swiftlint --config \"$CONFIG_FILE\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\n# Set the path to your .swiftlint.yml configuration file\nPROJECT_DIR: \"$PWD\"\nCONFIG_FILE: \"$PROJECT_DIR/CatalogApp/Resources/.swiftlint.yml\"\n\necho \"Working Directory = ${PROJECT_DIR}\"\necho \"SwiftLint Config File Directory = $CONFIG_FILE\"\n\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  cd \"${PROJECT_DIR}\" # Change the working directory to the project root\n  swiftlint --config \"$CONFIG_FILE\" --fix && swiftlint --config \"$CONFIG_FILE\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
