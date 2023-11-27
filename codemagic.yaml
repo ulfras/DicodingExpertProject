@@ -2,15 +2,15 @@ workflows:
   ios-project-debug:
     name: iOS debug
     environment:
-      xcode: latest
-      cocoapods: default
+      xcode:
+      cocoapods: latest
       vars:
         XCODE_PROJECT: "CatalogApp.xcodeproj"
+        XCODE_WORKSPACE: "CatalogApp.xcworkspace"
         XCODE_SCHEME: "CatalogApp"
     scripts:
       - name: Install Dependencies
         script: |
-          pwd
           pod install
       - name: Clean DerivedData
         script: |
