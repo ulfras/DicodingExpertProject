@@ -2,7 +2,7 @@ workflows:
   ios-project-debug:
     name: iOS debug
     environment:
-      xcode: latest
+      xcode: 14.0
       cocoapods: default
       vars:
         XCODE_PROJECT: "CatalogApp.xcodeproj"
