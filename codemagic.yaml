@@ -13,10 +13,15 @@ workflows:
           # Install SPM dependencies
           xcodebuild -resolvePackageDependencies -project "$XCODE_PROJECT" -scheme "$XCODE_SCHEME"
 
-          # Install SwiftLint
-          if [ ! -f ".swiftlint.yml" ]; then
-            # Create a default SwiftLint configuration file if not present
-            swiftlint init
+          CONFIG_FILE="${PROJECT_DIR}/CatalogApp/Resources/.swiftlint.yml"
+          
+          if [[ "$(uname -m)" == arm64 ]]; then
+              export PATH="/opt/homebrew/bin:$PATH"
+          fi
+
+          if which swiftlint > /dev/null; then
+            cd "${PROJECT_DIR}" # Change the working directory to the project root
+            swiftlint --config "$CONFIG_FILE" --fix && swiftlint --config "$CONFIG_FILE"
           fi
           brew install swiftlint
       - name: Clean DerivedData
