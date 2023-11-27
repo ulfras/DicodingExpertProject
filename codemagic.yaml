@@ -12,7 +12,7 @@ workflows:
     scripts:
       - name: Install Dependencies
         script: |
-          pod install
+          pod install --repo-update
       - name: Clean DerivedData
         script: |
           rm -rf ~/Library/Developer/Xcode/DerivedData
