@@ -24,10 +24,12 @@
 		310FA7972B0364D700EB681C /* FavoriteGameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FA7962B0364D700EB681C /* FavoriteGameListRouter.swift */; };
 		310FA7992B0364DB00EB681C /* FavoriteGameListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FA7982B0364DB00EB681C /* FavoriteGameListBuilder.swift */; };
 		310FA79B2B036F9700EB681C /* DeveloperNameDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310FA79A2B036F9700EB681C /* DeveloperNameDefaults.swift */; };
+		317BF9932B1323BA00FF445D /* CatalogAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317BF9922B1323BA00FF445D /* CatalogAppTests.swift */; };
 		319E0BFD2AFB859C001E1B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319E0BFC2AFB859C001E1B59 /* AppDelegate.swift */; };
 		319E0BFF2AFB859C001E1B59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319E0BFE2AFB859C001E1B59 /* SceneDelegate.swift */; };
 		319E0C062AFB859E001E1B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 319E0C052AFB859E001E1B59 /* Assets.xcassets */; };
 		319E0C092AFB859E001E1B59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 319E0C072AFB859E001E1B59 /* LaunchScreen.storyboard */; };
+		31BE13792B143DB3003B989D /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 31BE13782B143DB3003B989D /* codemagic.yaml */; };
 		31D8FFCB2AFE124E00B03FF1 /* CustomToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D8FFCA2AFE124E00B03FF1 /* CustomToast.swift */; };
 		31F232452AFBB51F007CE0A1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 31F232442AFBB51F007CE0A1 /* .swiftlint.yml */; };
 		31F2324A2AFBB744007CE0A1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F232492AFBB744007CE0A1 /* TabBarViewController.swift */; };
@@ -62,6 +64,16 @@
 		A74029745CD5A63736BEBFE9 /* Pods_CatalogApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B97F71C9709D0E7A62DE31 /* Pods_CatalogApp.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		317BF9942B1323BA00FF445D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 319E0BF12AFB859C001E1B59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 319E0BF82AFB859C001E1B59;
+			remoteInfo = CatalogApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		310607FC2B0EE1AD008745D4 /* RAWG.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RAWG.plist; sourceTree = "<group>"; };
 		310FA77A2B03166B00EB681C /* LaunchScreenDelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenDelayView.swift; sourceTree = "<group>"; };
@@ -80,12 +92,15 @@
 		310FA7962B0364D700EB681C /* FavoriteGameListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGameListRouter.swift; sourceTree = "<group>"; };
 		310FA7982B0364DB00EB681C /* FavoriteGameListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGameListBuilder.swift; sourceTree = "<group>"; };
 		310FA79A2B036F9700EB681C /* DeveloperNameDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperNameDefaults.swift; sourceTree = "<group>"; };
+		317BF9902B1323BA00FF445D /* CatalogAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatalogAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		317BF9922B1323BA00FF445D /* CatalogAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAppTests.swift; sourceTree = "<group>"; };
 		319E0BF92AFB859C001E1B59 /* CatalogApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatalogApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		319E0BFC2AFB859C001E1B59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		319E0BFE2AFB859C001E1B59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		319E0C052AFB859E001E1B59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		319E0C082AFB859E001E1B59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		319E0C0A2AFB859E001E1B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31BE13782B143DB3003B989D /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 		31D8FFCA2AFE124E00B03FF1 /* CustomToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToast.swift; sourceTree = "<group>"; };
 		31F232442AFBB51F007CE0A1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		31F232492AFBB744007CE0A1 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +138,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		317BF98D2B1323BA00FF445D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		319E0BF62AFB859C001E1B59 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -157,10 +179,19 @@
 			path = FavoriteGameListPage;
 			sourceTree = "<group>";
 		};
+		317BF9912B1323BA00FF445D /* CatalogAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				317BF9922B1323BA00FF445D /* CatalogAppTests.swift */,
+			);
+			path = CatalogAppTests;
+			sourceTree = "<group>";
+		};
 		319E0BF02AFB859C001E1B59 = {
 			isa = PBXGroup;
 			children = (
 				319E0BFB2AFB859C001E1B59 /* CatalogApp */,
+				317BF9912B1323BA00FF445D /* CatalogAppTests */,
 				319E0BFA2AFB859C001E1B59 /* Products */,
 				B97B3799BE0BA258B184A0D3 /* Pods */,
 				E9DEE6E3C195AA7EBCE5A295 /* Frameworks */,
@@ -171,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				319E0BF92AFB859C001E1B59 /* CatalogApp.app */,
+				317BF9902B1323BA00FF445D /* CatalogAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,6 +226,7 @@
 				319E0C052AFB859E001E1B59 /* Assets.xcassets */,
 				31F232442AFBB51F007CE0A1 /* .swiftlint.yml */,
 				310607FC2B0EE1AD008745D4 /* RAWG.plist */,
+				31BE13782B143DB3003B989D /* codemagic.yaml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -360,6 +393,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		317BF98F2B1323BA00FF445D /* CatalogAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 317BF9982B1323BA00FF445D /* Build configuration list for PBXNativeTarget "CatalogAppTests" */;
+			buildPhases = (
+				317BF98C2B1323BA00FF445D /* Sources */,
+				317BF98D2B1323BA00FF445D /* Frameworks */,
+				317BF98E2B1323BA00FF445D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				317BF9952B1323BA00FF445D /* PBXTargetDependency */,
+			);
+			name = CatalogAppTests;
+			productName = CatalogAppTests;
+			productReference = 317BF9902B1323BA00FF445D /* CatalogAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		319E0BF82AFB859C001E1B59 /* CatalogApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 319E0C0D2AFB859E001E1B59 /* Build configuration list for PBXNativeTarget "CatalogApp" */;
@@ -391,6 +442,10 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					317BF98F2B1323BA00FF445D = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 319E0BF82AFB859C001E1B59;
+					};
 					319E0BF82AFB859C001E1B59 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -410,11 +465,19 @@
 			projectRoot = "";
 			targets = (
 				319E0BF82AFB859C001E1B59 /* CatalogApp */,
+				317BF98F2B1323BA00FF445D /* CatalogAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		317BF98E2B1323BA00FF445D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		319E0BF72AFB859C001E1B59 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,6 +486,7 @@
 				310FA7932B03631F00EB681C /* FavoriteGameListPage.storyboard in Resources */,
 				31FBA8382AFBC59400949621 /* ProfilePage.storyboard in Resources */,
 				310FA77D2B03168A00EB681C /* LaunchScreenDelay.storyboard in Resources */,
+				31BE13792B143DB3003B989D /* codemagic.yaml in Resources */,
 				31F232572AFBBEA6007CE0A1 /* GameDetailPage.storyboard in Resources */,
 				319E0C092AFB859E001E1B59 /* LaunchScreen.storyboard in Resources */,
 				31FBA8472AFBD68800949621 /* GameListCell.xib in Resources */,
@@ -515,6 +579,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		317BF98C2B1323BA00FF445D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				317BF9932B1323BA00FF445D /* CatalogAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		319E0BF52AFB859C001E1B59 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -566,6 +638,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		317BF9952B1323BA00FF445D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 319E0BF82AFB859C001E1B59 /* CatalogApp */;
+			targetProxy = 317BF9942B1323BA00FF445D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		319E0C072AFB859E001E1B59 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -578,6 +658,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		317BF9962B1323BA00FF445D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B37KNUVJL9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ulfras.learning.CatalogAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CatalogApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CatalogApp";
+			};
+			name = Debug;
+		};
+		317BF9972B1323BA00FF445D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B37KNUVJL9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ulfras.learning.CatalogAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CatalogApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CatalogApp";
+			};
+			name = Release;
+		};
 		319E0C0B2AFB859E001E1B59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -764,6 +880,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		317BF9982B1323BA00FF445D /* Build configuration list for PBXNativeTarget "CatalogAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				317BF9962B1323BA00FF445D /* Debug */,
+				317BF9972B1323BA00FF445D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		319E0BF42AFB859C001E1B59 /* Build configuration list for PBXProject "CatalogApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
