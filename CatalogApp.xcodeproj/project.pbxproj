@@ -29,7 +29,6 @@
 		319E0BFF2AFB859C001E1B59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319E0BFE2AFB859C001E1B59 /* SceneDelegate.swift */; };
 		319E0C062AFB859E001E1B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 319E0C052AFB859E001E1B59 /* Assets.xcassets */; };
 		319E0C092AFB859E001E1B59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 319E0C072AFB859E001E1B59 /* LaunchScreen.storyboard */; };
-		31BE13792B143DB3003B989D /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 31BE13782B143DB3003B989D /* codemagic.yaml */; };
 		31D8FFCB2AFE124E00B03FF1 /* CustomToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D8FFCA2AFE124E00B03FF1 /* CustomToast.swift */; };
 		31F232452AFBB51F007CE0A1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 31F232442AFBB51F007CE0A1 /* .swiftlint.yml */; };
 		31F2324A2AFBB744007CE0A1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F232492AFBB744007CE0A1 /* TabBarViewController.swift */; };
@@ -100,7 +99,6 @@
 		319E0C052AFB859E001E1B59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		319E0C082AFB859E001E1B59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		319E0C0A2AFB859E001E1B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		31BE13782B143DB3003B989D /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 		31D8FFCA2AFE124E00B03FF1 /* CustomToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToast.swift; sourceTree = "<group>"; };
 		31F232442AFBB51F007CE0A1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		31F232492AFBB744007CE0A1 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				319E0C052AFB859E001E1B59 /* Assets.xcassets */,
 				31F232442AFBB51F007CE0A1 /* .swiftlint.yml */,
 				310607FC2B0EE1AD008745D4 /* RAWG.plist */,
-				31BE13782B143DB3003B989D /* codemagic.yaml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -486,7 +483,6 @@
 				310FA7932B03631F00EB681C /* FavoriteGameListPage.storyboard in Resources */,
 				31FBA8382AFBC59400949621 /* ProfilePage.storyboard in Resources */,
 				310FA77D2B03168A00EB681C /* LaunchScreenDelay.storyboard in Resources */,
-				31BE13792B143DB3003B989D /* codemagic.yaml in Resources */,
 				31F232572AFBBEA6007CE0A1 /* GameDetailPage.storyboard in Resources */,
 				319E0C092AFB859E001E1B59 /* LaunchScreen.storyboard in Resources */,
 				31FBA8472AFBD68800949621 /* GameListCell.xib in Resources */,
