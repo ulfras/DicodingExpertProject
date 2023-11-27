@@ -8,14 +8,28 @@ workflows:
         XCODE_SCHEME: "CatalogApp"
         IOS_DEPLOYMENT_TARGET: "13.0"
     scripts:
+      - name: Install SPM Dependencies and SwiftLint
+        script: |
+          # Install SPM dependencies
+          xcodebuild -resolvePackageDependencies -project "$XCODE_PROJECT" -scheme "$XCODE_SCHEME"
+
+          # Install SwiftLint
+          if [ ! -f ".swiftlint.yml" ]; then
+            # Create a default SwiftLint configuration file if not present
+            swiftlint init
+          fi
+          brew install swiftlint
       - name: Clean DerivedData
         script: |
           rm -rf ~/Library/Developer/Xcode/DerivedData
       - name: Build debug app
         script: |
-          xcodebuild build -workspace "$XCODE_PROJECT" \
+          xcodebuild build -project "$XCODE_PROJECT" \
           -scheme "$XCODE_SCHEME" \
           CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+      - name: Run SwiftLint
+        script: |
+          swiftlint
     artifacts:
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
     publishing:
