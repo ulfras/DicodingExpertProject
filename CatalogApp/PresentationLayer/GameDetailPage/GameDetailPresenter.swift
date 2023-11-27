@@ -5,6 +5,8 @@
 //  Created by Maulana Frasha on 08/11/23.
 //
 
+import RAWGCorePackage
+
 protocol GameDetailPresenterProtocol {
     var gameDetailView: GameDetailViewProtocol? { get set }
     var gameDetailInteractor: GameDetailInteractorProtocol? { get set }

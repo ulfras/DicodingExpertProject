@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RAWGCorePackage
 
 protocol GameListRouterProtocol {
     func goToGameDetailPage(gameData: RAWGGameDetailModel)

@@ -5,6 +5,8 @@
 //  Created by Maulana Frasha on 08/11/23.
 //
 
+import RAWGCorePackage
+
 protocol ProfilePresenterProtocol {
     var profileView: ProfileViewProtocol? { get set }
     var profileInteractor: ProfileInteractorProtocol? { get set }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RAWGCorePackage
 
 protocol FavoriteGameListPresenterProtocol {
     var favoriteGameListView: FavoriteGameListViewProtocol? { get set }

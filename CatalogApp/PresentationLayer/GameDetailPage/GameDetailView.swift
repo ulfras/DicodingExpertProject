@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RAWGCorePackage
 
 protocol GameDetailViewProtocol {
     var gameDetailPresenter: GameDetailPresenterProtocol? { get set }

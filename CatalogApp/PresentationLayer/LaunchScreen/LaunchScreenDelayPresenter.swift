@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RAWGCorePackage
 
 protocol LaunchScreenDelayPresenterProtocol {
     var launchScreenDelayView: LaunchScreenDelayViewProtocol? { get set }

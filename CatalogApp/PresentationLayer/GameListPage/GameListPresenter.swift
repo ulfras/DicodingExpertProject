@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import RAWGCorePackage
 
 protocol GameListPresenterProtocol {
     var gameListView: GameListViewProtocol? { get set }

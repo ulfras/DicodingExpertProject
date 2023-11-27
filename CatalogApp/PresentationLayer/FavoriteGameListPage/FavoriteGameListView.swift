@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RAWGCorePackage
 
 protocol FavoriteGameListViewProtocol {
     var favoriteGameListPresenter: FavoriteGameListPresenterProtocol? { get set }
