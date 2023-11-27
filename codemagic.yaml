@@ -2,12 +2,13 @@ workflows:
   ios-project-debug:
     name: iOS debug
     environment:
-      xcode: 14.0
+      xcode: latest
       cocoapods: default
       vars:
         XCODE_PROJECT: "CatalogApp.xcodeproj"
         XCODE_WORKSPACE: "CatalogApp.xcworkspace"
         XCODE_SCHEME: "CatalogApp"
+        IOS_DEPLOYMENT_TARGET: "13.0"
     scripts:
       - name: Install Dependencies
         script: |
