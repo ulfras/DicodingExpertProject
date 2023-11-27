@@ -1,2 +1,2 @@
 # DicodingFundamentalCatalogApp
-[![Codemagic build status](https://api.codemagic.io/apps/65642eb593eeb6e2a950a044/ios-project-debug/status_badge.svg)](https://codemagic.io/apps/65642eb593eeb6e2a950a044/ios-project-debug/latest_build)
+[![Codemagic build status](https://api.codemagic.io/apps/6564050914c37d2c802f74b7/ios-project-debug/status_badge.svg)](https://codemagic.io/apps/6564050914c37d2c802f74b7/ios-project-debug/latest_build)
