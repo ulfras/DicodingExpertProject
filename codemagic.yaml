@@ -8,7 +8,9 @@ workflows:
           XCODE_PROJECT: "CatalogApp.xcodeproj"
           XCODE_SCHEME: "CatalogApp"
     dependencies:
-      pre:
+      cache:
+        - ~/.pub-cache
+      scripts:
         - pod install
     scripts:
       - name: Clean DerivedData
