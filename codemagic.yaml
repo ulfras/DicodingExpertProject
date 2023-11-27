@@ -18,7 +18,7 @@ workflows:
           rm -rf ~/Library/Developer/Xcode/DerivedData
       - name: Build debug app
         script: |
-          xcodebuild build -project "$XCODE_PROJECT" \
+          xcodebuild build -workspace "$XCODE_WORKSPACE" \
           -scheme "$XCODE_SCHEME" \
           CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
     artifacts:
@@ -27,3 +27,6 @@ workflows:
       email:
         recipients:
           - ul.frasha@gmail.com
+
+
+
