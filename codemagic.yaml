@@ -3,7 +3,7 @@ workflows:
     name: iOS debug
     environment:
       xcode: latest
-      cocoapods: 1.13.0
+      cocoapods: default
       vars:
         XCODE_PROJECT: "CatalogApp.xcodeproj"
         XCODE_WORKSPACE: "CatalogApp.xcworkspace"
