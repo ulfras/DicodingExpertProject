@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1500"
-   version = "1.7">
+   version = "2.1">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -17,6 +17,30 @@
                BlueprintIdentifier = "319E0BF82AFB859C001E1B59"
                BuildableName = "CatalogApp.app"
                BlueprintName = "CatalogApp"
+               ReferencedContainer = "container:CatalogApp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <TestPlanReference
+               reference = "container:CatalogApp.xctestplan">
+            </TestPlanReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "317BF98F2B1323BA00FF445D"
+               BuildableName = "CatalogAppTests.xctest"
+               BlueprintName = "CatalogAppTests"
                ReferencedContainer = "container:CatalogApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
