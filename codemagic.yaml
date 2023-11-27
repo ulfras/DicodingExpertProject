@@ -5,14 +5,12 @@ workflows:
       xcode: latest
       cocoapods: default
       vars:
-          XCODE_PROJECT: "CatalogApp.xcodeproj"
-          XCODE_SCHEME: "CatalogApp"
-    dependencies:
-      cache:
-        - ~/.pub-cache
-      scripts:
-        - pod install
+        XCODE_PROJECT: "CatalogApp.xcodeproj"
+        XCODE_SCHEME: "CatalogApp"
     scripts:
+      - name: Install Dependencies
+        script: |
+          pod install
       - name: Clean DerivedData
         script: |
           rm -rf ~/Library/Developer/Xcode/DerivedData
