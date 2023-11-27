@@ -497,7 +497,6 @@
 /* Begin PBXShellScriptBuildPhase section */
 		312E2C4A2B00B7270000C7D8 /* RAWG.plist Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -516,7 +515,6 @@
 		};
 		319E0C182AFB8A45001E1B59 /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
