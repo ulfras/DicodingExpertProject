@@ -23,7 +23,7 @@ class FavoriteGameListViewController: UIViewController {
     @IBOutlet weak var favoriteGameListTableViewOutlet: UITableView!
     @IBOutlet weak var noFavoriteGameImageOutlet: UIImageView!
     @IBOutlet weak var noFavoriteGameLabelOutlet: UILabel!
-    
+
     override func viewWillAppear(_ animated: Bool) {
 
         favoriteGameListPresenter?.willFetchFavoriteGameList()
@@ -40,8 +40,8 @@ class FavoriteGameListViewController: UIViewController {
         favoriteGameListTableViewOutlet.delegate = self
         favoriteGameListTableViewOutlet.dataSource = self
 
-        let nib = UINib(nibName: "GameListCell", bundle: Bundle.main)
-        favoriteGameListTableViewOutlet.register(nib, forCellReuseIdentifier: "GameListCell")
+        let cellNib = UINib(nibName: "GameListCell", bundle: Bundle.main)
+        favoriteGameListTableViewOutlet.register(cellNib, forCellReuseIdentifier: "GameListCell")
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,20 +52,20 @@ class FavoriteGameListViewController: UIViewController {
 
 extension FavoriteGameListViewController: FavoriteGameListViewProtocol {
     func showFavoriteList(_ favoriteList: [RAWGGameDetailModel]) {
-        
+
         self.favoriteGameList = favoriteList
-        
+
         if self.favoriteGameList.isEmpty {
             favoriteGameListTableViewOutlet.isHidden = true
-            
+
             noFavoriteGameImageOutlet.isHidden = false
             noFavoriteGameLabelOutlet.isHidden = false
         } else {
             favoriteGameListTableViewOutlet.isHidden = false
-            
+
             noFavoriteGameImageOutlet.isHidden = true
             noFavoriteGameLabelOutlet.isHidden = true
-            
+
             favoriteGameListTableViewOutlet.reloadData()
         }
     }

@@ -17,13 +17,6 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
 analyzer_rules: # rules run by `swiftlint analyze`
   - explicit_self
 
-included:  #case-sensitive paths to include during linting. `--path` is ignored if present
-  - /Users/maulanafrasha/DicodingFundamentalCatalogApp/CatalogApp
-
-excluded: # case-sensitive paths to ignore during linting. Takes precedence over `included`
-  - /Users/maulanafrasha/DicodingFundamentalCatalogApp/Pods
-  - /Users/maulanafrasha/DicodingFundamentalCatalogApp/CatalogApp/Utility/CustomToast.swift
-
 # If true, SwiftLint will not fail if no lintable files are found.
 allow_zero_lintable_files: false
 

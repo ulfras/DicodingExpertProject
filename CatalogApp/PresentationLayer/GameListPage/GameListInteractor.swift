@@ -12,9 +12,9 @@ import Foundation
 
 protocol GameListInteractorProtocol {
     var gameListPresenter: GameListPresenterProtocol? { get set }
-    
+
     var gameListDataSource: RAWGAPIDataSource? { get set }
-    
+
     func fetchGameDetailRx(id gameID: String) -> Observable<RAWGGameDetailModel>
 
     func fetchGameDetail(id gameID: String, completionHandler: @escaping(Result<RAWGGameDetailModel, AFError>) -> Void)
@@ -23,9 +23,9 @@ protocol GameListInteractorProtocol {
 class GameListInteractor: GameListInteractorProtocol {
 
     var gameListPresenter: GameListPresenterProtocol?
-    
+
     var gameListDataSource: RAWGAPIDataSource?
-    
+
     var apiKey: String {
         guard let filePath = Bundle.main.path(forResource: "RAWG", ofType: "plist") else {
 
@@ -50,7 +50,7 @@ class GameListInteractor: GameListInteractorProtocol {
     func fetchGameDetailRx(id gameID: String) -> Observable<RAWGGameDetailModel> {
         return gameListDataSource!.getGameDetailRx(apiKey: apiKey, gameID: gameID)
     }
-    
+
     func fetchGameDetail(id gameID: String, completionHandler: @escaping(Result<RAWGGameDetailModel, AFError>) -> Void) {
         gameListDataSource?.getGameDetail(apiKey: apiKey, gameID: gameID) { result in
             completionHandler(result)

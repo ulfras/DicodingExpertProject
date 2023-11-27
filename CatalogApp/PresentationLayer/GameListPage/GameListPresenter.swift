@@ -17,7 +17,7 @@ protocol GameListPresenterProtocol {
     func willFetchGameList()
 
     func willFetchGameDetailRx(id gameID: Int)
-    
+
     func willFetchGameDetail(id gameID: Int)
 }
 
@@ -28,7 +28,7 @@ class GameListPresenter: GameListPresenterProtocol {
     var gameListInteractor: GameListInteractorProtocol?
 
     var gameListRouter: GameListRouterProtocol?
-    
+
     private let disposeBag = DisposeBag()
 
     init(gameListView: GameListViewProtocol, gameListInteractor: GameListInteractorProtocol) {
@@ -55,10 +55,10 @@ class GameListPresenter: GameListPresenterProtocol {
 
         gameListView?.showGameList(gameListData)
     }
-    
+
     func willFetchGameDetailRx(id gameID: Int) {
         gameListView?.showLoadingScreen()
-        
+
         if FavoriteGameDefaults.check() {
 
             let favoriteList = FavoriteGameDefaults.get()

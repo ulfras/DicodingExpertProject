@@ -10,8 +10,8 @@ import UIKit
 class CustomToast {
 
     enum Position {
-        case top
-        case bottom
+        case topPosition
+        case bottomPosition
     }
 
     static func show(
@@ -19,7 +19,7 @@ class CustomToast {
         bgColor: UIColor,
         textColor: UIColor = .white,
         labelFont: UIFont = .systemFont(ofSize: 17),
-        showIn: Position = .bottom,
+        showIn: Position = .bottomPosition,
         controller: UIViewController) {
         for item in controller.view.subviews {
             if item.tag == 12212121212121 {
@@ -56,7 +56,7 @@ class CustomToast {
 
         let toastViewC1 = NSLayoutConstraint(item: toastView, attribute: .leading, relatedBy: .equal, toItem: controller.view, attribute: .leading, multiplier: 1, constant: 16)
         let toastViewC2 = NSLayoutConstraint(item: toastView, attribute: .trailing, relatedBy: .equal, toItem: controller.view, attribute: .trailing, multiplier: 1, constant: -16)
-        let toastViewC3 = NSLayoutConstraint(item: toastView, attribute: (showIn == .top) ? .top : .bottom, relatedBy: .equal, toItem: controller.view, attribute: (showIn == .top) ? .top : .bottom, multiplier: 1, constant: (showIn == .top) ? controller.view.safeAreaInsets.top + 16 : -(controller.view.safeAreaInsets.bottom + 16))
+        let toastViewC3 = NSLayoutConstraint(item: toastView, attribute: (showIn == .topPosition) ? .top : .bottom, relatedBy: .equal, toItem: controller.view, attribute: (showIn == .topPosition) ? .top : .bottom, multiplier: 1, constant: (showIn == .topPosition) ? controller.view.safeAreaInsets.top + 16 : -(controller.view.safeAreaInsets.bottom + 16))
 
         controller.view.addConstraints([toastViewC1,toastViewC2,toastViewC3])
 

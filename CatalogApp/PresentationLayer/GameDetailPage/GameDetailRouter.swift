@@ -21,8 +21,8 @@ class GameDetailRouter: GameDetailRouterProtocol {
     }
 
     func goToGameWebsite(_ gameWebsite: String) {
-        let url = URL(string: gameWebsite)
-        let safariViewController = SFSafariViewController(url: url!)
+        let gameWebURL = URL(string: gameWebsite)
+        let safariViewController = SFSafariViewController(url: gameWebURL!)
         gameDetailViewController?.present(safariViewController, animated: true)
     }
 }

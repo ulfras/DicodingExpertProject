@@ -14,25 +14,25 @@ protocol LaunchScreenDelayPresenterProtocol {
     var launchScreenDelayRouter: LaunchScreenDelayRouterProtocol? { get set }
 
     func willFetchGameListRx()
-    
+
     func willFetchGameList()
 }
 
 class LaunchScreenDelayPresenter: LaunchScreenDelayPresenterProtocol {
-    
+
     var launchScreenDelayView: LaunchScreenDelayViewProtocol?
-    
+
     var launchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol?
-    
+
     var launchScreenDelayRouter: LaunchScreenDelayRouterProtocol?
-    
+
     private let disposeBag = DisposeBag()
 
     init(launchScreenDelayView: LaunchScreenDelayViewProtocol, launchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol) {
         self.launchScreenDelayView = launchScreenDelayView
         self.launchScreenDelayInteractor = launchScreenDelayInteractor
     }
-    
+
     func willFetchGameListRx() {
         launchScreenDelayInteractor?.fetchGameListRx()
             .observe(on: MainScheduler.instance)

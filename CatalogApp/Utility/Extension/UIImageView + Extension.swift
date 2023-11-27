@@ -36,7 +36,7 @@ extension UIImageView {
     }
 
     func setImageFrom(_ urlString: String, completion: (() -> Void)? = nil) {
-        guard let url = URL(string: urlString) else { return }
+        guard let imageURL = URL(string: urlString) else { return }
 
         if let cachedImage = ImageCache.shared.image(forKey: urlString) {
             self.image = cachedImage
@@ -51,7 +51,7 @@ extension UIImageView {
         }
 
         DispatchQueue.global().async {
-            if let imageData = try? Data(contentsOf: url),
+            if let imageData = try? Data(contentsOf: imageURL),
                let image = UIImage(data: imageData) {
                 let resizedImage = image.resized(toWidth: 500)
 

@@ -38,7 +38,7 @@ class FavoriteGameListPresenter: FavoriteGameListPresenterProtocol {
     func willFetchGameDetail(id gameID: Int) {
         if FavoriteGameDefaults.check() {
             let favoriteList = FavoriteGameDefaults.get()
-            
+
             if let index = favoriteList.firstIndex(where: { $0.id == gameID }) {
                 let data = favoriteList[index]
                 self.favoriteGameListRouter?.goToGameDetailPage(gameData: data)

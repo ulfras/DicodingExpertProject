@@ -12,19 +12,19 @@ import Foundation
 
 protocol LaunchScreenDelayInteractorProtocol {
     var launchScreenDelayPresenter: LaunchScreenDelayPresenterProtocol? { get set }
-    
+
     var launchScreenDelayDataSource: RAWGAPIDataSource? { get set }
 
     func fetchGameListRx() -> Observable<RAWGGameListModel>
-    
+
     func fetchGameList(completionHandler: @escaping (Result<RAWGGameListModel, AFError>) -> Void)
 }
 
 class LaunchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol {
     var launchScreenDelayPresenter: LaunchScreenDelayPresenterProtocol?
-    
+
     var launchScreenDelayDataSource: RAWGAPIDataSource?
-    
+
     var apiKey: String {
         guard let filePath = Bundle.main.path(forResource: "RAWG", ofType: "plist") else {
 
@@ -41,11 +41,11 @@ class LaunchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol {
         }
         return value
     }
-    
+
     init(launchScreenDelayDataSource: RAWGAPIDataSource) {
         self.launchScreenDelayDataSource = launchScreenDelayDataSource
     }
-    
+
     func fetchGameListRx() -> Observable<RAWGGameListModel> {
         return launchScreenDelayDataSource!.getGameListRx(apiKey: apiKey)
     }

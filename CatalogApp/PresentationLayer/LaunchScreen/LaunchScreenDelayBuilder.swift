@@ -17,7 +17,7 @@ class LaunchScreenDelayBuilder {
     static func build() -> UIViewController {
 
         let dataSource = RAWGAPIDataSource()
-        
+
         let view = storyBoard.instantiateViewController(withIdentifier: "LaunchScreenDelay") as! LaunchScreenDelayViewController
         let interactor = LaunchScreenDelayInteractor(launchScreenDelayDataSource: dataSource)
         let presenter = LaunchScreenDelayPresenter(launchScreenDelayView: view, launchScreenDelayInteractor: interactor)
