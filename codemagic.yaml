@@ -7,23 +7,34 @@ workflows:
         XCODE_PROJECT: "CatalogApp.xcodeproj"
         XCODE_SCHEME: "CatalogApp"
         IOS_DEPLOYMENT_TARGET: "13.0"
+        PROJECT_DIR: "$PWD"
+        CONFIG_FILE: "$PROJECT_DIR/CatalogApp/Resources/.swiftlint.yml"
     scripts:
       - name: Install SPM Dependencies and SwiftLint
         script: |
           # Install SPM dependencies
           xcodebuild -resolvePackageDependencies -project "$XCODE_PROJECT" -scheme "$XCODE_SCHEME"
-
-          CONFIG_FILE="${PROJECT_DIR}/CatalogApp/Resources/.swiftlint.yml"
+          
+          swiftlint lint --config "$CONFIG_FILE" --strict
           
           if [[ "$(uname -m)" == arm64 ]]; then
               export PATH="/opt/homebrew/bin:$PATH"
           fi
-
+          
+          brew install swiftlint || brew upgrade swiftlint
+          
           if which swiftlint > /dev/null; then
-            cd "${PROJECT_DIR}" # Change the working directory to the project root
-            swiftlint --config "$CONFIG_FILE" --fix && swiftlint --config "$CONFIG_FILE"
+            # Run SwiftLint without --fix to identify issues
+            swiftlint lint --config "$CONFIG_FILE"
+
+            # Run SwiftLint with --fix to attempt automatic fixing
+            swiftlint --config "$CONFIG_FILE" --fix
+
+            # Run SwiftLint again to verify fixes
+            swiftlint lint --config "$CONFIG_FILE"
+          else
+            echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
           fi
-          brew install swiftlint
       - name: Clean DerivedData
         script: |
           rm -rf ~/Library/Developer/Xcode/DerivedData
@@ -32,9 +43,6 @@ workflows:
           xcodebuild build -project "$XCODE_PROJECT" \
           -scheme "$XCODE_SCHEME" \
           CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
-      - name: Run SwiftLint
-        script: |
-          swiftlint
     artifacts:
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
     publishing:
