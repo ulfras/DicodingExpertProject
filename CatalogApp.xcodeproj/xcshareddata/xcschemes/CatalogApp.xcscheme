@@ -23,22 +23,22 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <TestPlanReference
                reference = "container:CatalogApp.xctestplan">
             </TestPlanReference>
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "317BF98F2B1323BA00FF445D"
+               BlueprintIdentifier = "3198EF932B144BFE00077C09"
                BuildableName = "CatalogAppTests.xctest"
                BlueprintName = "CatalogAppTests"
                ReferencedContainer = "container:CatalogApp.xcodeproj">
@@ -63,7 +63,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "317BF98F2B1323BA00FF445D"
+               BlueprintIdentifier = "3198EF932B144BFE00077C09"
                BuildableName = "CatalogAppTests.xctest"
                BlueprintName = "CatalogAppTests"
                ReferencedContainer = "container:CatalogApp.xcodeproj">
