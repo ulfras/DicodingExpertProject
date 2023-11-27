@@ -3,22 +3,17 @@ workflows:
     name: iOS debug
     environment:
       xcode: latest
-      cocoapods: default
       vars:
         XCODE_PROJECT: "CatalogApp.xcodeproj"
-        XCODE_WORKSPACE: "CatalogApp.xcworkspace"
         XCODE_SCHEME: "CatalogApp"
         IOS_DEPLOYMENT_TARGET: "13.0"
     scripts:
-      - name: Install Dependencies
-        script: |
-          pod install --repo-update
       - name: Clean DerivedData
         script: |
           rm -rf ~/Library/Developer/Xcode/DerivedData
       - name: Build debug app
         script: |
-          xcodebuild build -workspace "$XCODE_WORKSPACE" \
+          xcodebuild build -workspace "$XCODE_PROJECT" \
           -scheme "$XCODE_SCHEME" \
           CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
     artifacts:
@@ -27,6 +22,3 @@ workflows:
       email:
         recipients:
           - ul.frasha@gmail.com
-
-
-
