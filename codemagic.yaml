@@ -8,7 +8,7 @@ workflows:
         XCODE_SCHEME: "CatalogApp"
         IOS_DEPLOYMENT_TARGET: "13.0"
     scripts:
-      - name: Install SPM Dependencies and SwiftLint
+      - name: Install SPM Dependencies
         script: |
           # Install SPM dependencies
           xcodebuild -resolvePackageDependencies -project "$XCODE_PROJECT" -scheme "$XCODE_SCHEME"
