@@ -14,9 +14,7 @@ protocol GameDetailPresenterProtocol {
 
     func willFetchGameDetail()
 
-    func willAddToFavorite(_ gameDetailData: RAWGGameDetailModel)
-
-    func willRemoveFromFavorite(_ gameDetailID: Int)
+    func willUpdateFavorite(_ gameDetailData: RAWGGameDetailModel)
 
     func willGoToGameWebsite(_ gameWebsite: String)
 }
@@ -41,23 +39,8 @@ class GameDetailPresenter: GameDetailPresenterProtocol {
         gameDetailView?.showGameDetailData(gameDetailData: gameDetailData)
     }
 
-    func willAddToFavorite(_ gameDetailData: RAWGGameDetailModel) {
-        if !FavoriteGameDefaults.check() {
-            FavoriteGameDefaults.save([gameDetailData])
-        } else {
-            var favoriteGameList = FavoriteGameDefaults.get()
-            favoriteGameList.append(gameDetailData)
-            FavoriteGameDefaults.save(favoriteGameList)
-        }
-    }
-
-    func willRemoveFromFavorite(_ gameDetailID: Int) {
-        var favoriteList = FavoriteGameDefaults.get()
-
-        if let indexToRemove = favoriteList.firstIndex(where: { $0.id == gameDetailID }) {
-            favoriteList.remove(at: indexToRemove)
-            FavoriteGameDefaults.save(favoriteList)
-        }
+    func willUpdateFavorite(_ gameDetailData: RAWGGameDetailModel) {
+        FavoriteGameRealm.save(gameDetailData)
     }
 
     func willGoToGameWebsite(_ gameWebsite: String) {

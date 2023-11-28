@@ -35,7 +35,7 @@ extension UIImageView {
         return activityIndicator
     }
 
-    func setImageFrom(_ urlString: String, completion: (() -> Void)? = nil) {
+    func setImageFrom(_ urlString: String, completion: (() -> Void)? = nil) async {
         guard let imageURL = URL(string: urlString) else { return }
 
         if let cachedImage = ImageCache.shared.image(forKey: urlString) {
@@ -45,33 +45,25 @@ extension UIImageView {
         }
 
         let activityIndicator = createActivityIndicator()
+        activityIndicator.startAnimating()
 
-        DispatchQueue.main.async {
-            activityIndicator.startAnimating()
-        }
+        do {
+            let imageData = try await URLSession.shared.data(from: imageURL).0
 
-        DispatchQueue.global().async {
-            if let imageData = try? Data(contentsOf: imageURL),
-               let image = UIImage(data: imageData) {
+            if let image = UIImage(data: imageData) {
                 let resizedImage = image.resized(toWidth: 500)
-
                 ImageCache.shared.saveImage(resizedImage, forKey: urlString)
 
-                DispatchQueue.main.async {
-                    self.image = resizedImage
-                    completion?()
-
-                    activityIndicator.stopAnimating()
-                    activityIndicator.removeFromSuperview()
-                }
+                self.image = resizedImage
+                completion?()
             } else {
-                print("Failed to download image")
-
-                DispatchQueue.main.async {
-                    activityIndicator.stopAnimating()
-                    activityIndicator.removeFromSuperview()
-                }
+                print("Failed to create image from data")
             }
+        } catch {
+            print("Failed to download image: \(error)")
         }
+
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
 }

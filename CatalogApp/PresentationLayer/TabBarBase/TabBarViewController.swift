@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RAWGCorePackage
 
 class TabBarViewController: UITabBarController {
 
@@ -24,7 +25,7 @@ extension TabBarViewController {
 
     private func setupGameListPage() -> UINavigationController {
 
-        let gameListPage = GameListBuilder.build()
+        let gameListPage = GameListBuilder.build(dataSource: RAWGAPIDataSource())
 
         let listIcon = UIImage(systemName: "list.bullet")?.withRenderingMode(.alwaysOriginal).withTintColor(.systemGray4)
         let selectedListImage = UIImage(systemName: "list.bullet")?.withRenderingMode(.alwaysOriginal).withTintColor(.dicoding)

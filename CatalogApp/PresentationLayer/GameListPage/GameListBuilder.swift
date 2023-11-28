@@ -14,9 +14,7 @@ class GameListBuilder {
         return UIStoryboard(name: "GameListPage", bundle: Bundle.main)
     }
 
-    static func build() -> UIViewController {
-
-        let dataSource = RAWGAPIDataSource()
+    static func build(dataSource: RAWGAPIDataSource) -> UIViewController {
 
         let view = storyBoard.instantiateViewController(withIdentifier: "GameListPage") as! GameListViewController
         let interactor = GameListInteractor(gameListDataSource: dataSource)

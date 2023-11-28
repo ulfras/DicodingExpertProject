@@ -29,15 +29,14 @@ class FavoriteGameListPresenter: FavoriteGameListPresenterProtocol {
     }
 
     func willFetchFavoriteGameList() {
-        if FavoriteGameDefaults.check() {
-            let favoriteList = FavoriteGameDefaults.get()
-            favoriteGameListView?.showFavoriteList(favoriteList)
-        }
+        let favoriteList = FavoriteGameRealm.get()
+        print("favoriteList: \(favoriteList)")
+        favoriteGameListView?.showFavoriteList(favoriteList)
     }
 
     func willFetchGameDetail(id gameID: Int) {
-        if FavoriteGameDefaults.check() {
-            let favoriteList = FavoriteGameDefaults.get()
+        if FavoriteGameRealm.check() {
+            let favoriteList = FavoriteGameRealm.get()
 
             if let index = favoriteList.firstIndex(where: { $0.id == gameID }) {
                 let data = favoriteList[index]

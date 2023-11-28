@@ -88,7 +88,9 @@ extension FavoriteGameListViewController: UITableViewDataSource {
         let reusableData = favoriteGameList[indexPath.row]
 
         cell.selectionStyle = .none
-        cell.gameImageViewOutlet.setImageFrom(reusableData.backgroundImage)
+        Task {
+            await cell.gameImageViewOutlet.setImageFrom(reusableData.backgroundImage)
+        }
         cell.gameNameLabelOutlet.text = reusableData.name
         cell.releaseDataLabelOutlet.text = "Release Date: \(reusableData.released.formattedDate())"
         cell.gameRatingLabelOutlet.text = String(reusableData.rating)

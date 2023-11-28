@@ -66,12 +66,12 @@ class GameDetailViewController: UIViewController {
             gameDetailData.isFavorite = true
             self.gameDetailData = gameDetailData
             updateFavoriteButton(gameDetailData.isFavorite!)
-            gameDetailPresenter?.willAddToFavorite(gameDetailData)
+            gameDetailPresenter?.willUpdateFavorite(gameDetailData)
         } else {
             gameDetailData.isFavorite?.toggle()
             self.gameDetailData = gameDetailData
             updateFavoriteButton(gameDetailData.isFavorite!)
-            gameDetailPresenter?.willRemoveFromFavorite(gameDetailData.id)
+            gameDetailPresenter?.willUpdateFavorite(gameDetailData)
         }
     }
 
@@ -112,7 +112,9 @@ extension GameDetailViewController: GameDetailViewProtocol {
             updateFavoriteButton(false)
         }
 
-        gameImageViewOutlet.setImageFrom(gameDetailData.backgroundImage)
+        Task {
+            await gameImageViewOutlet.setImageFrom(gameDetailData.backgroundImage)
+        }
 
         let gameDev = gameDetailData.developers.map { $0.name }.joined(separator: ", ")
         developerNameLabelOutlet.text = "Developer: \(gameDev)"

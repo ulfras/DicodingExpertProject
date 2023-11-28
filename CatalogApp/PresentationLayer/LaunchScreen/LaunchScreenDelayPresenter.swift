@@ -34,14 +34,19 @@ class LaunchScreenDelayPresenter: LaunchScreenDelayPresenterProtocol {
     }
 
     func willFetchGameListRx() {
-        launchScreenDelayInteractor?.fetchGameListRx()
-            .observe(on: MainScheduler.instance)
-            .subscribe { result in
-                GameListDefaults.save(result)
-                self.launchScreenDelayRouter?.goToGameList()
-            } onError: { error in
-                self.launchScreenDelayView?.failedToFetchGameList(error.localizedDescription)
-            }.disposed(by: disposeBag)
+        if GameListRealm.check() {
+            launchScreenDelayRouter?.goToGameList()
+        } else {
+            launchScreenDelayInteractor?.fetchGameListRx()
+                .observe(on: MainScheduler.instance)
+                .subscribe { result in
+                    GameListRealm.save(result)
+                    self.launchScreenDelayRouter?.goToGameList()
+                } onError: { error in
+                    self.launchScreenDelayView?.failedToFetchGameList(error.localizedDescription)
+                }.disposed(by: disposeBag)
+        }
+
     }
 
     func willFetchGameList() {

@@ -38,11 +38,11 @@ class GameListPresenter: GameListPresenterProtocol {
 
     func willFetchGameList() {
 
-        let gameListDataDefaults = GameListDefaults.get()
+        let gameListDataRealm = GameListRealm.get()
 
         var gameListData: [GameListEntity] = []
 
-        for resultDatum in gameListDataDefaults.results {
+        for resultDatum in gameListDataRealm!.results {
             gameListData.append(
                 GameListEntity(
                     id: resultDatum.id,
@@ -59,9 +59,9 @@ class GameListPresenter: GameListPresenterProtocol {
     func willFetchGameDetailRx(id gameID: Int) {
         gameListView?.showLoadingScreen()
 
-        if FavoriteGameDefaults.check() {
+        if FavoriteGameRealm.check() {
 
-            let favoriteList = FavoriteGameDefaults.get()
+            let favoriteList = FavoriteGameRealm.get()
             var foundMatch = false
 
             if let index = favoriteList.firstIndex(where: { $0.id == gameID }) {
