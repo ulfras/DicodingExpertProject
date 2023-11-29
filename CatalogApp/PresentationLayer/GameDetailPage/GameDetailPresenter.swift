@@ -5,8 +5,6 @@
 //  Created by Maulana Frasha on 08/11/23.
 //
 
-import RAWGCorePackage
-
 protocol GameDetailPresenterProtocol {
     var gameDetailView: GameDetailViewProtocol? { get set }
     var gameDetailInteractor: GameDetailInteractorProtocol? { get set }
@@ -14,7 +12,7 @@ protocol GameDetailPresenterProtocol {
 
     func willFetchGameDetail()
 
-    func willUpdateFavorite(_ gameDetailData: RAWGGameDetailModel)
+    func willUpdateFavorite(_ gameDetailData: GameDetailEntity)
 
     func willGoToGameWebsite(_ gameWebsite: String)
 }
@@ -26,9 +24,9 @@ class GameDetailPresenter: GameDetailPresenterProtocol {
 
     var gameDetailRouter: GameDetailRouterProtocol?
 
-    var gameDetailData: RAWGGameDetailModel?
+    var gameDetailData: GameDetailEntity?
 
-    init(gameDetailView: GameDetailViewProtocol, gameDetailInteractor: GameDetailInteractorProtocol, gameData: RAWGGameDetailModel) {
+    init(gameDetailView: GameDetailViewProtocol, gameDetailInteractor: GameDetailInteractorProtocol, gameData: GameDetailEntity) {
         self.gameDetailView = gameDetailView
         self.gameDetailInteractor = gameDetailInteractor
         self.gameDetailData = gameData
@@ -39,8 +37,8 @@ class GameDetailPresenter: GameDetailPresenterProtocol {
         gameDetailView?.showGameDetailData(gameDetailData: gameDetailData)
     }
 
-    func willUpdateFavorite(_ gameDetailData: RAWGGameDetailModel) {
-        FavoriteGameRealm.save(gameDetailData)
+    func willUpdateFavorite(_ gameDetailData: GameDetailEntity) {
+        gameDetailInteractor?.saveGameFavoriteRealm(gameDetailData)
     }
 
     func willGoToGameWebsite(_ gameWebsite: String) {

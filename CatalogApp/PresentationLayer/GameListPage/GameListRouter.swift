@@ -20,8 +20,27 @@ class GameListRouter: GameListRouterProtocol {
     }
 
     func goToGameDetailPage(gameData: RAWGGameDetailModel) {
-        let gameDetailPage = GameDetailBuilder.build(gameData: gameData)
-        gameDetailPage.title = gameData.name
+
+        let publisherName = [PublisherName(name: gameData.publishers.first!.name)]
+        let developersName = [GameDeveloper(name: gameData.developers.first!.name)]
+        let esrbRating = EsrbRating(name: gameData.esrbRating.name)
+
+        let gameDetailData = GameDetailEntity(
+            id: gameData.id,
+            name: gameData.name,
+            released: gameData.released,
+            backgroundImage: gameData.backgroundImage,
+            website: gameData.website,
+            rating: gameData.rating,
+            publishers: publisherName,
+            developers: developersName,
+            esrbRating: esrbRating,
+            descriptionRaw: gameData.descriptionRaw,
+            isFavorite: gameData.isFavorite
+        )
+
+        let gameDetailPage = GameDetailBuilder.build(gameData: gameDetailData)
+        gameDetailPage.title = gameDetailData.name
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.gameListViewController?.navigationController?.pushViewController(gameDetailPage, animated: true)

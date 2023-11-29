@@ -7,7 +7,6 @@
 
 import Foundation
 import RxSwift
-import RAWGCorePackage
 
 protocol GameListPresenterProtocol {
     var gameListView: GameListViewProtocol? { get set }
@@ -37,8 +36,7 @@ class GameListPresenter: GameListPresenterProtocol {
     }
 
     func willFetchGameList() {
-
-        let gameListDataRealm = GameListRealm.get()
+        let gameListDataRealm = gameListInteractor?.fetchGameListRealm()
 
         var gameListData: [GameListEntity] = []
 
@@ -59,13 +57,13 @@ class GameListPresenter: GameListPresenterProtocol {
     func willFetchGameDetailRx(id gameID: Int) {
         gameListView?.showLoadingScreen()
 
-        if FavoriteGameRealm.check() {
+        if gameListInteractor!.checkFavoriteGameRealm() {
 
-            let favoriteList = FavoriteGameRealm.get()
+            let favoriteList = gameListInteractor?.fetchFavoriteGameRealm()
             var foundMatch = false
 
-            if let index = favoriteList.firstIndex(where: { $0.id == gameID }) {
-                let data = favoriteList[index]
+            if let index = favoriteList!.firstIndex(where: { $0.id == gameID }) {
+                let data = favoriteList![index]
 
                 self.gameListView?.dismissLoadingScreen()
                 self.gameListRouter?.goToGameDetailPage(gameData: data)
@@ -99,9 +97,9 @@ class GameListPresenter: GameListPresenterProtocol {
 
         gameListView?.showLoadingScreen()
 
-        if FavoriteGameDefaults.check() {
+        if gameListInteractor!.checkFavoriteDefault() {
 
-            let favoriteList = FavoriteGameDefaults.get()
+            let favoriteList = gameListInteractor!.fetchFavoriteGameDefault()
             var foundMatch = false
 
             if let index = favoriteList.firstIndex(where: { $0.id == gameID }) {

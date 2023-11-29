@@ -15,6 +15,16 @@ protocol GameListInteractorProtocol {
 
     var gameListDataSource: RAWGAPIDataSource? { get set }
 
+    func fetchGameListRealm() -> RAWGGameListModel?
+
+    func checkFavoriteGameRealm() -> Bool
+
+    func fetchFavoriteGameRealm() -> [RAWGGameDetailModel]
+
+    func checkFavoriteDefault() -> Bool
+
+    func fetchFavoriteGameDefault() -> [RAWGGameDetailModel]
+
     func fetchGameDetailRx(id gameID: String) -> Observable<RAWGGameDetailModel>
 
     func fetchGameDetail(id gameID: String, completionHandler: @escaping(Result<RAWGGameDetailModel, AFError>) -> Void)
@@ -45,6 +55,26 @@ class GameListInteractor: GameListInteractorProtocol {
 
     init(gameListDataSource: RAWGAPIDataSource) {
         self.gameListDataSource = gameListDataSource
+    }
+
+    func fetchGameListRealm() -> RAWGGameListModel? {
+        return GameListRealm.get()
+    }
+
+    func checkFavoriteGameRealm() -> Bool {
+        return FavoriteGameRealm.check()
+    }
+
+    func fetchFavoriteGameRealm() -> [RAWGGameDetailModel] {
+        return FavoriteGameRealm.get()
+    }
+
+    func checkFavoriteDefault() -> Bool {
+        return FavoriteGameDefaults.check()
+    }
+
+    func fetchFavoriteGameDefault() -> [RAWGGameDetailModel] {
+        return FavoriteGameDefaults.get()
     }
 
     func fetchGameDetailRx(id gameID: String) -> Observable<RAWGGameDetailModel> {

@@ -11,14 +11,14 @@ import RAWGCorePackage
 protocol FavoriteGameListViewProtocol {
     var favoriteGameListPresenter: FavoriteGameListPresenterProtocol? { get set }
 
-    func showFavoriteList(_ favoriteList: [RAWGGameDetailModel])
+    func showFavoriteList(_ favoriteList: [FavoriteGameListEntity])
 }
 
 class FavoriteGameListViewController: UIViewController {
 
     var favoriteGameListPresenter: FavoriteGameListPresenterProtocol?
 
-    var favoriteGameList: [RAWGGameDetailModel] = []
+    var favoriteGameList: [FavoriteGameListEntity] = []
 
     @IBOutlet weak var favoriteGameListTableViewOutlet: UITableView!
     @IBOutlet weak var noFavoriteGameImageOutlet: UIImageView!
@@ -27,6 +27,8 @@ class FavoriteGameListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 
         favoriteGameListPresenter?.willFetchFavoriteGameList()
+
+        navigationController?.navigationBar.tintColor = .dicoding
 
         if let selectedIndexPath = favoriteGameListTableViewOutlet.indexPathForSelectedRow {
             favoriteGameListTableViewOutlet.deselectRow(at: selectedIndexPath, animated: true)
@@ -51,7 +53,7 @@ class FavoriteGameListViewController: UIViewController {
 }
 
 extension FavoriteGameListViewController: FavoriteGameListViewProtocol {
-    func showFavoriteList(_ favoriteList: [RAWGGameDetailModel]) {
+    func showFavoriteList(_ favoriteList: [FavoriteGameListEntity]) {
 
         self.favoriteGameList = favoriteList
 

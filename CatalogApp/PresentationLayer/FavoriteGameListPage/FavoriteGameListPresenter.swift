@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RAWGCorePackage
 
 protocol FavoriteGameListPresenterProtocol {
     var favoriteGameListView: FavoriteGameListViewProtocol? { get set }
@@ -29,14 +28,24 @@ class FavoriteGameListPresenter: FavoriteGameListPresenterProtocol {
     }
 
     func willFetchFavoriteGameList() {
-        let favoriteList = FavoriteGameRealm.get()
-        print("favoriteList: \(favoriteList)")
-        favoriteGameListView?.showFavoriteList(favoriteList)
+        let favoriteList = favoriteGameListInteractor!.fetchFavoriteGameRealm()
+        var favoriteListData: [FavoriteGameListEntity] = []
+
+        for favoriteListDatum in favoriteList {
+            favoriteListData.append(FavoriteGameListEntity(
+                id: favoriteListDatum.id,
+                name: favoriteListDatum.name,
+                released: favoriteListDatum.released,
+                backgroundImage: favoriteListDatum.backgroundImage,
+                rating: favoriteListDatum.rating))
+        }
+
+        favoriteGameListView?.showFavoriteList(favoriteListData)
     }
 
     func willFetchGameDetail(id gameID: Int) {
-        if FavoriteGameRealm.check() {
-            let favoriteList = FavoriteGameRealm.get()
+        if favoriteGameListInteractor!.checkFavoriteGameRealm() {
+            let favoriteList = favoriteGameListInteractor!.fetchFavoriteGameRealm()
 
             if let index = favoriteList.firstIndex(where: { $0.id == gameID }) {
                 let data = favoriteList[index]

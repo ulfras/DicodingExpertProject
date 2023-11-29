@@ -6,12 +6,11 @@
 //
 
 import UIKit
-import RAWGCorePackage
 
 protocol GameDetailViewProtocol {
     var gameDetailPresenter: GameDetailPresenterProtocol? { get set }
 
-    func showGameDetailData(gameDetailData: RAWGGameDetailModel)
+    func showGameDetailData(gameDetailData: GameDetailEntity)
 
     func failedToFetchGameDetail(_ errorString: String)
 }
@@ -19,7 +18,7 @@ protocol GameDetailViewProtocol {
 class GameDetailViewController: UIViewController {
 
     var gameDetailPresenter: GameDetailPresenterProtocol?
-    var gameDetailData: RAWGGameDetailModel?
+    var gameDetailData: GameDetailEntity?
 
     @IBOutlet weak var gameImageViewOutlet: UIImageView!
     @IBOutlet weak var developerNameLabelOutlet: UILabel!
@@ -102,7 +101,7 @@ extension GameDetailViewController: GameDetailViewProtocol {
         self.present(alert, animated: true)
     }
 
-    func showGameDetailData(gameDetailData: RAWGGameDetailModel) {
+    func showGameDetailData(gameDetailData: GameDetailEntity) {
 
         self.gameDetailData = gameDetailData
 
