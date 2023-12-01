@@ -25,7 +25,7 @@ extension TabBarViewController {
 
     private func setupGameListPage() -> UINavigationController {
 
-        let gameListPage = GameListBuilder.build(dataSource: RAWGAPIDataSource())
+        let gameListPage = GameListBuilder.build(rawgAPIDataSource: RAWGAPIDataSource(), gameListRealmDataSource: GameListRealm(), favoriteGameRealmDataSource: FavoriteGameRealm())
 
         let listIcon = UIImage(systemName: "list.bullet")?.withRenderingMode(.alwaysOriginal).withTintColor(.systemGray4)
         let selectedListImage = UIImage(systemName: "list.bullet")?.withRenderingMode(.alwaysOriginal).withTintColor(.dicoding)
@@ -40,7 +40,7 @@ extension TabBarViewController {
     }
 
     private func setupFavoriteGameListPage() -> UINavigationController {
-        let favoriteGameListPage = FavoriteGameListBuilder.build()
+        let favoriteGameListPage = FavoriteGameListBuilder.build(FavoriteGameRealm())
 
         let listIcon = UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysOriginal).withTintColor(.systemGray4)
         let selectedListImage = UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysOriginal).withTintColor(.dicoding)

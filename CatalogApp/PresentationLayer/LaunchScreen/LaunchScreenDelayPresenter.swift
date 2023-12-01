@@ -9,8 +9,11 @@ import RxSwift
 import RAWGCorePackage
 
 protocol LaunchScreenDelayPresenterProtocol {
+
     var launchScreenDelayView: LaunchScreenDelayViewProtocol? { get set }
+
     var launchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol? { get set }
+
     var launchScreenDelayRouter: LaunchScreenDelayRouterProtocol? { get set }
 
     func willFetchGameListRx()
@@ -28,19 +31,34 @@ class LaunchScreenDelayPresenter: LaunchScreenDelayPresenterProtocol {
 
     private let disposeBag = DisposeBag()
 
-    init(launchScreenDelayView: LaunchScreenDelayViewProtocol, launchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol) {
+    init(launchScreenDelayView: LaunchScreenDelayViewProtocol,
+         launchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol
+    ) {
         self.launchScreenDelayView = launchScreenDelayView
         self.launchScreenDelayInteractor = launchScreenDelayInteractor
     }
 
     func willFetchGameListRx() {
-        if GameListRealm.check() {
+        if launchScreenDelayInteractor!.checkGameListRealm() {
             launchScreenDelayRouter?.goToGameList()
         } else {
             launchScreenDelayInteractor?.fetchGameListRx()
                 .observe(on: MainScheduler.instance)
                 .subscribe { result in
-                    GameListRealm.save(result)
+
+                    var gameListEntityData: [GameListEntity] = []
+                    var gameListData: GameListResults = GameListResults(results: gameListEntityData)
+
+                    for data in result.results {
+                        gameListEntityData.append(
+                            GameListEntity(id: data.id,
+                                           name: data.name,
+                                           released: data.released,
+                                           backgroundImage: data.backgroundImage,
+                                           rating: data.rating))
+                    }
+
+                    self.launchScreenDelayInteractor?.saveGameFavoriteRealm(gameListData)
                     self.launchScreenDelayRouter?.goToGameList()
                 } onError: { error in
                     self.launchScreenDelayView?.failedToFetchGameList(error.localizedDescription)

@@ -39,7 +39,7 @@ class GameListRouter: GameListRouterProtocol {
             isFavorite: gameData.isFavorite
         )
 
-        let gameDetailPage = GameDetailBuilder.build(gameData: gameDetailData)
+        let gameDetailPage = GameDetailBuilder.build(gameData: gameDetailData, favoriteGameRealmDataSource: FavoriteGameRealm())
         gameDetailPage.title = gameDetailData.name
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

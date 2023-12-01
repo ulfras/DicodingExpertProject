@@ -14,12 +14,14 @@ class LaunchScreenDelayBuilder {
         return UIStoryboard(name: "LaunchScreenDelay", bundle: Bundle.main)
     }
 
-    static func build() -> UIViewController {
+    static func build(gameListRealmDataSource: GameListRealmDataSource) -> UIViewController {
 
         let dataSource = RAWGAPIDataSource()
 
         let view = storyBoard.instantiateViewController(withIdentifier: "LaunchScreenDelay") as! LaunchScreenDelayViewController
-        let interactor = LaunchScreenDelayInteractor(launchScreenDelayDataSource: dataSource)
+        let interactor = LaunchScreenDelayInteractor(
+            launchScreenDelayDataSource: dataSource,
+            gameListRealmDataSource: gameListRealmDataSource)
         let presenter = LaunchScreenDelayPresenter(launchScreenDelayView: view, launchScreenDelayInteractor: interactor)
         let router = LaunchScreenDelayRouter(launchScreenDelayViewController: view)
 

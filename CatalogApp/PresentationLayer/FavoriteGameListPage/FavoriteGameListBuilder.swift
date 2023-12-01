@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RAWGCorePackage
 
 class FavoriteGameListBuilder {
 
@@ -13,9 +14,9 @@ class FavoriteGameListBuilder {
         return UIStoryboard(name: "FavoriteGameListPage", bundle: Bundle.main)
     }
 
-    static func build() -> UIViewController {
+    static func build(_ favoriteGameRealmDataSource: FavoriteGameRealmDataSource) -> UIViewController {
         let view = storyBoard.instantiateViewController(withIdentifier: "FavoriteGameList") as! FavoriteGameListViewController
-        let interactor = FavoriteGameListInteractor()
+        let interactor = FavoriteGameListInteractor(favoriteGameRealmDataSource: favoriteGameRealmDataSource)
         let presenter = FavoriteGameListPresenter(favoriteGameListView: view, favoriteGameListInteractor: interactor)
         let router = FavoriteGameListRouter(favoriteGameListViewController: view)
 

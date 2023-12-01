@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RAWGCorePackage
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -45,7 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate {
     private func showDelayScreen() {
-        let launchScreenDelay = LaunchScreenDelayBuilder.build()
+        let launchScreenDelay = LaunchScreenDelayBuilder.build(gameListRealmDataSource: GameListRealm())
         window?.rootViewController = launchScreenDelay
         window?.makeKeyAndVisible()
     }

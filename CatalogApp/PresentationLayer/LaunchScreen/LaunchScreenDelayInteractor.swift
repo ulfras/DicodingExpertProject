@@ -15,6 +15,12 @@ protocol LaunchScreenDelayInteractorProtocol {
 
     var launchScreenDelayDataSource: RAWGAPIDataSource? { get set }
 
+    var gameListRealmDataSource: GameListRealmDataSource? { get set }
+
+    func checkGameListRealm() -> Bool
+
+    func saveGameFavoriteRealm(_ gameList: GameListResults)
+
     func fetchGameListRx() -> Observable<RAWGGameListModel>
 
     func fetchGameList(completionHandler: @escaping (Result<RAWGGameListModel, AFError>) -> Void)
@@ -24,6 +30,8 @@ class LaunchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol {
     var launchScreenDelayPresenter: LaunchScreenDelayPresenterProtocol?
 
     var launchScreenDelayDataSource: RAWGAPIDataSource?
+
+    var gameListRealmDataSource: GameListRealmDataSource?
 
     var apiKey: String {
         guard let filePath = Bundle.main.path(forResource: "RAWG", ofType: "plist") else {
@@ -42,8 +50,28 @@ class LaunchScreenDelayInteractor: LaunchScreenDelayInteractorProtocol {
         return value
     }
 
-    init(launchScreenDelayDataSource: RAWGAPIDataSource) {
+    init(launchScreenDelayDataSource: RAWGAPIDataSource, gameListRealmDataSource: GameListRealmDataSource) {
         self.launchScreenDelayDataSource = launchScreenDelayDataSource
+        self.gameListRealmDataSource = gameListRealmDataSource
+    }
+
+    func checkGameListRealm() -> Bool {
+        gameListRealmDataSource!.check()
+    }
+
+    func saveGameFavoriteRealm(_ gameList: GameListResults) {
+        do {
+            let jsonData = try JSONEncoder().encode(gameList)
+
+            let rawgGameListModel = try JSONDecoder().decode(
+                RAWGGameListModel.self,
+                from: jsonData
+            )
+
+            gameListRealmDataSource?.save(rawgGameListModel)
+        } catch {
+            print("Error encoding: \(error.localizedDescription)")
+        }
     }
 
     func fetchGameListRx() -> Observable<RAWGGameListModel> {

@@ -12,11 +12,20 @@ import Foundation
 protocol GameDetailInteractorProtocol {
     var gameDetailPresenter: GameDetailPresenterProtocol? { get set }
 
+    var favoriteGameRealmDataSource: FavoriteGameRealmDataSource? { get set }
+
     func saveGameFavoriteRealm(_ favoritedGame: GameDetailEntity)
 }
 
 class GameDetailInteractor: GameDetailInteractorProtocol {
+
     var gameDetailPresenter: GameDetailPresenterProtocol?
+
+    var favoriteGameRealmDataSource: RAWGCorePackage.FavoriteGameRealmDataSource?
+
+    init(favoriteGameRealmDataSource: RAWGCorePackage.FavoriteGameRealmDataSource) {
+        self.favoriteGameRealmDataSource = favoriteGameRealmDataSource
+    }
 
     func saveGameFavoriteRealm(_ favoritedGame: GameDetailEntity) {
         do {
@@ -27,7 +36,7 @@ class GameDetailInteractor: GameDetailInteractorProtocol {
                 from: jsonData
             )
 
-            FavoriteGameRealm.save(rawgGameDetailModel)
+            favoriteGameRealmDataSource?.save(rawgGameDetailModel)
         } catch {
             print("Error encoding or decoding: \(error)")
         }

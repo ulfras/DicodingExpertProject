@@ -14,9 +14,9 @@ class GameDetailBuilder {
         return UIStoryboard(name: "GameDetailPage", bundle: Bundle.main)
     }
 
-    static func build(gameData: GameDetailEntity) -> UIViewController {
+    static func build(gameData: GameDetailEntity, favoriteGameRealmDataSource: FavoriteGameRealmDataSource) -> UIViewController {
         let view = storyBoard.instantiateViewController(withIdentifier: "GameDetailPage") as! GameDetailViewController
-        let interactor = GameDetailInteractor()
+        let interactor = GameDetailInteractor(favoriteGameRealmDataSource: favoriteGameRealmDataSource)
         let presenter = GameDetailPresenter(gameDetailView: view, gameDetailInteractor: interactor, gameData: gameData)
         let router = GameDetailRouter(gameDetailViewController: view)
 

@@ -14,10 +14,13 @@ class GameListBuilder {
         return UIStoryboard(name: "GameListPage", bundle: Bundle.main)
     }
 
-    static func build(dataSource: RAWGAPIDataSource) -> UIViewController {
+    static func build(rawgAPIDataSource: RAWGAPIDataSource, gameListRealmDataSource: GameListRealmDataSource, favoriteGameRealmDataSource: FavoriteGameRealmDataSource) -> UIViewController {
 
         let view = storyBoard.instantiateViewController(withIdentifier: "GameListPage") as! GameListViewController
-        let interactor = GameListInteractor(gameListDataSource: dataSource)
+        let interactor = GameListInteractor(
+            gameListAPIDataSource: rawgAPIDataSource,
+            gameListRealmDataSource: gameListRealmDataSource,
+            favoriteGameRealmDataSource: favoriteGameRealmDataSource)
         let presenter = GameListPresenter(gameListView: view, gameListInteractor: interactor)
         let router = GameListRouter(gameListViewController: view)
 

@@ -10,19 +10,28 @@ import RAWGCorePackage
 protocol FavoriteGameListInteractorProtocol {
     var favoriteGameListPresenter: FavoriteGameListPresenterProtocol? { get set }
 
+    var favoriteGameRealmDataSource: FavoriteGameRealmDataSource? { get set }
+
     func checkFavoriteGameRealm() -> Bool
 
     func fetchFavoriteGameRealm() -> [RAWGGameDetailModel]
 }
 
 class FavoriteGameListInteractor: FavoriteGameListInteractorProtocol {
+
     var favoriteGameListPresenter: FavoriteGameListPresenterProtocol?
 
+    var favoriteGameRealmDataSource: FavoriteGameRealmDataSource?
+
+    init(favoriteGameRealmDataSource: FavoriteGameRealmDataSource) {
+        self.favoriteGameRealmDataSource = favoriteGameRealmDataSource
+    }
+
     func checkFavoriteGameRealm() -> Bool {
-        return FavoriteGameRealm.check()
+        return favoriteGameRealmDataSource!.check()
     }
 
     func fetchFavoriteGameRealm() -> [RAWGGameDetailModel] {
-        return FavoriteGameRealm.get()
+        return favoriteGameRealmDataSource!.get()
     }
 }

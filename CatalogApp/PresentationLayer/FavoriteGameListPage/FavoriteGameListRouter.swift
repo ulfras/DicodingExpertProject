@@ -40,7 +40,7 @@ class FavoriteGameListRouter: FavoriteGameListRouterProtocol {
             isFavorite: gameData.isFavorite
         )
 
-        let gameDetailPage = GameDetailBuilder.build(gameData: gameDetailData)
+        let gameDetailPage = GameDetailBuilder.build(gameData: gameDetailData, favoriteGameRealmDataSource: FavoriteGameRealm())
         gameDetailPage.title = gameDetailData.name
 
         favoriteGameListViewController?.navigationController?.pushViewController(gameDetailPage, animated: true)
